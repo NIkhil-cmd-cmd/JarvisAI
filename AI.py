@@ -43,7 +43,7 @@ actionresponses = ["In terms of what I can do, I can tell jokes, help write a pa
 openai.api_key = st.secrets["APIKEY"]
 exitlist = ['bye', 'goodbye','see you','adios', 'cya', 'gtg', ]
 fill=''
-tokenmax=120
+tokenmax=250
 option = st.selectbox(
 'Choose a specific command',('Unslected', 'Write a rap', 'Write a poem','Write an article', 'Generate ideas', 'Continue writing','Translate to English','Translate to Spanish','Translate to French', 'Translate to German','Translate to Japanese','Translate to Italian','Translate to Hindi'))
 
@@ -54,29 +54,28 @@ if question:
     #language translations
     if option == 'Translate to Spanish':
         question = ('Translate to Spanish: ' + question)
-        
+        tokenmax = 50
     elif option == 'Translate to English':
         question = ('Translate to English: ' + question)
-        
+        tokenmax = 50
     elif option == 'Translate to French':
         question = ('Translate to French: ' + question)
-        
+        tokenmax = 50
     elif option == 'Translate to German':
         question = ('Translate to German: ' + question)
-        
+        tokenmax = 50
     elif option == 'Translate to Japanese':
         question = ('Translate to Japanese: ' + question)
-        
+        tokenmax = 50
     elif option == 'Translate to Italian':
         question = ('Translate to Italian: ' + question)
-        
+        tokenmax = 50
     elif option == 'Translate to Hindi':
         question = ('Translate to Hindi: ' + question)
-        
+        tokenmax = 50
     #other commands
     elif option == 'Write an article':
         question = ('Write an article about: ' + question)
-        tokenmax = 200
         
     elif option == 'Generate an idea':
         question = ('Ideas for ' + question)
