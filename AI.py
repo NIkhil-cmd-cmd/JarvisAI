@@ -70,10 +70,10 @@ if question:
     index = random.randint(0,7)
     n = st.write(notif[index])
     
-    elif ("your name" in question) or ("ur name" in question):
+    if ("your name" in question) or ("ur name" in question):
         time.sleep(0.5)
         st.write(nameresponses[(random.randint(0,5))])
-    elif ("you do" in question) or ("u do" in question):
+    if ("you do" in question) or ("u do" in question):
         time.sleep(0.5)
         st.write(actionresponses[(random.randint(0,5))])
         
