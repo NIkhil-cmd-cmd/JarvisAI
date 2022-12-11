@@ -17,11 +17,11 @@ opacity: 0.9;
 [data-testid="stMarkdownContainer"]{
 font-family: "Playfair Display"
 }
-</style>
+</style>a
 """
 
 
-st.write(page_bg_img,unsafe_allow_html=True)
+st.markdown(page_bg_img,unsafe_allow_html=True)
 notif = ["Hang tight...", "Initializing...", "Almost there...", "Hang on...", "Loading...", "Give me a minute...", "Finding an answer...", "Thinking...."]
 with st.container():
     st.header("Welcome to a new world of creativity. :wave:")
@@ -38,9 +38,13 @@ fill=''
 question = st.text_input("Enter your prompt below:", fill)
 
 if question:
+    
     index = random.randint(0,7)
     n = st.write(notif[index])
     
+    if "your name" in question:
+        st.write("My name is Jarvis")
+        
     response = openai.Completion.create(model="text-davinci-003", prompt=question, temperature=0.3, max_tokens=120, top_p=1.0)
     answer = (response.choices[0].text).strip()
 
