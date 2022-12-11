@@ -59,7 +59,7 @@ if question:
         size="1024x1024"
 )
     answer = response['data'][0]['url']
-)
+
 
     if option == 'Translate to Spanish':
         question = ('Translate to Spanish: ' + question)
