@@ -48,7 +48,7 @@ if question:
     
     if ("your name" in question) or ("ur name" in question):
         time.sleep(0.5)
-        st.write(nameresponses[(random.randint(0.5))])
+        st.write(nameresponses[(random.randint(0,5))])
 
     else:
         response = openai.Completion.create(model="text-davinci-003", prompt=question, temperature=0.3, max_tokens=120, top_p=1.0)
