@@ -26,7 +26,7 @@ notif = ["Hang tight...", "Initializing...", "Almost there...", "Hang on...", "L
 with st.container():
     st.header("Welcome to a new world of creativity. :wave:")
     st.subheader("Meet Jarvis. An intelligent assistant using OpenAI.")
-    st.write("You can ask Jarvis to answer questions, create a paragraph, finish a sentence, help come up with ideas, and a lot more!")
+    st.write("You can ask Jarvis to answer questions, write a paragraph, translate between languages, help come up with ideas, and a lot more!")
 nameresponses = ["My name is Jarvis, an intelligent and creative virtual assistant.", 
                  "I am Jarvis, a virtual assistant created by my master Nikhil.", 
                  "My name is Jarvis, inspired by Tony Stark's virtual assistant, I can help you in countless ways.", 
@@ -54,14 +54,26 @@ if question:
     
     if option == 'Translate to Spanish':
         question = ('Translate to Spanish: ' + question)
+    elif option == 'Translate to English':
+        question = ('Translate to English: ' + question)
+    elif option == 'Translate to French':
+        question = ('Translate to French: ' + question)
+    elif option == 'Translate to German':
+        question = ('Translate to German: ' + question)
+    elif option == 'Translate to Japanese':
+        question = ('Translate to Japanese: ' + question)
+    elif option == 'Translate to Italian':
+        question = ('Translate to Italian: ' + question)
+    elif option == 'Translate to Hindi':
+        question = ('Translate to Hindi: ' + question)
     
     index = random.randint(0,7)
     n = st.write(notif[index])
     
-    if ("your name" in question) or ("ur name" in question):
+    elif ("your name" in question) or ("ur name" in question):
         time.sleep(0.5)
         st.write(nameresponses[(random.randint(0,5))])
-    if ("you do" in question) or ("u do" in question):
+    elif ("you do" in question) or ("u do" in question):
         time.sleep(0.5)
         st.write(actionresponses[(random.randint(0,5))])
         
