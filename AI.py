@@ -30,7 +30,7 @@ with st.container():
 
 
 # Load your API key from an environment variable or secret management service
-openai.api_key = APIKEY
+openai.api_key = st.secrets[APIKEY]
 exitlist = ['bye', 'goodbye','see you','adios', 'cya', 'gtg', ]
 fill=''
 
