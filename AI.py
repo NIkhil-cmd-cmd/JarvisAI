@@ -27,9 +27,13 @@ with st.container():
     st.header("Welcome to a new world of creativity. :wave:")
     st.subheader("Meet Jarvis. An intelligent assistant using OpenAI.")
     st.write("You can ask Jarvis to answer questions, create a paragraph, finish a sentence, help come up with ideas, and a lot more!")
-nameresponses = ["My name is Jarvis, an intelligent and creative virtual assistant."]
+nameresponses = ["My name is Jarvis, an intelligent and creative virtual assistant.", 
+                 "I am Jarvis, a virtual assistant created my my master Nikhil.", 
+                 "My name is Jarvis, inspired by Tony Stark's virtual assistant, I can help you in countless ways.", 
+                 "Hi I'm Jarvis, how can I help?", 
+                 "Hey, my name is Jarvis, how may I be of assistance?",
+                 "My name is Jarvis, created to help those regain their creative edge, learn more, or just looking to have some fun."]
 
-# Load your API key from an environment variable or secret management service
 openai.api_key = st.secrets["APIKEY"]
 exitlist = ['bye', 'goodbye','see you','adios', 'cya', 'gtg', ]
 fill=''
@@ -44,7 +48,7 @@ if question:
     
     if ("your name" in question) or ("ur name" in question):
         time.sleep(0.5)
-        st.write("My name is Jarvis")
+        st.write(nameresponses[(random.randint(0.5))])
 
     else:
         response = openai.Completion.create(model="text-davinci-003", prompt=question, temperature=0.3, max_tokens=120, top_p=1.0)
