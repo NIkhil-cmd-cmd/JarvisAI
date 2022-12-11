@@ -21,7 +21,7 @@ font-family: "Playfair Display"
 """
 
 
-st.markdown(page_bg_img,unsafe_allow_html=True)
+st.write(page_bg_img,unsafe_allow_html=True)
 notif = ["Hang tight...", "Initializing...", "Almost there...", "Hang on...", "Loading...", "Give me a minute...", "Finding an answer...", "Thinking...."]
 with st.container():
     st.header("Welcome to a new world of creativity. :wave:")
