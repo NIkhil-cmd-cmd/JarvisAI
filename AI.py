@@ -61,7 +61,7 @@ if question:
         answer = response['data'][0]['url']
         
         with st.container():
-            st.write(answer)
+            st.image(answer)
 
 
     if option == 'Translate to Spanish':
