@@ -48,10 +48,12 @@ option = st.selectbox(
 'Choose a specific command',('Translate to Spanish', 'Write an article', 'Generate an idea', 'Continue writing'))
 
 question = st.text_input("Enter your prompt below:", fill)
-if option == 'Translate to Spanish':
-    question = ('Translate to Spanish: ' + question)
+
 
 if question:
+    
+    if option == 'Translate to Spanish':
+    question = ('Translate to Spanish: ' + question)
     
     index = random.randint(0,7)
     n = st.write(notif[index])
