@@ -28,7 +28,7 @@ with st.container():
     st.subheader("Meet Jarvis. An intelligent assistant using OpenAI.")
     st.write("You can ask Jarvis to answer questions, create a paragraph, finish a sentence, help come up with ideas, and a lot more!")
 nameresponses = ["My name is Jarvis, an intelligent and creative virtual assistant.", 
-                 "I am Jarvis, a virtual assistant created my my master Nikhil.", 
+                 "I am Jarvis, a virtual assistant created by my master Nikhil.", 
                  "My name is Jarvis, inspired by Tony Stark's virtual assistant, I can help you in countless ways.", 
                  "Hi I'm Jarvis, how can I help?", 
                  "Hey, my name is Jarvis, how may I be of assistance?",
