@@ -106,21 +106,24 @@ if question:
     index = random.randint(0,7)
     n = st.write(notif[index])
     
-    if ("your name" in question) or ("ur name" in question):
-        time.sleep(0.5)
-        answer = (nameresponses[(random.randint(0,5))])
-    if ("you do" in question) or ("u do" in question):
+    if ("your name" not in question) or ("ur name" not in question) or ("you do" not in question) or ("u do" not in question):
+        
+        response = openai.Completion.create(model="text-davinci-003", prompt=question, temperature=0.3, max_tokens=tokenmax, top_p=1.0)
+        answer = (response.choices[0].text).strip()
+        
+        
+    elif ("you do" in question) or ("u do" in question):
         time.sleep(0.5)
         answer = (actionresponses[(random.randint(0,5))])
 
-    else:
-        response = openai.Completion.create(model="text-davinci-003", prompt=question, temperature=0.3, max_tokens=tokenmax, top_p=1.0)
-        answer = (response.choices[0].text).strip()
+    elif ("your name" in question) or ("ur name" in question):
+        time.sleep(0.5)
+        answer = (nameresponses[(random.randint(0,5))])
 
 
-        with st.container():
-            st.write(answer)
-        
+    with st.container():
+        st.write(answer)
+
         
 st.caption("Copyright Nikhil Krishnaswamy 2022")
 
