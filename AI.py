@@ -43,7 +43,7 @@ if question:
     n = st.write(notif[index])
     
     if ("your name" in question) or ("ur name" in question):
-        time.wait(0.5)
+        time.sleep(0.5)
         st.write("My name is Jarvis")
 
     else:
