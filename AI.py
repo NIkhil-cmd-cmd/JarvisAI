@@ -43,15 +43,24 @@ actionresponses = ["In terms of what I can do, I can tell jokes, help write a pa
 openai.api_key = st.secrets["APIKEY"]
 exitlist = ['bye', 'goodbye','see you','adios', 'cya', 'gtg', ]
 fill=''
-tokenmax=250
+tokenmax=130
 option = st.selectbox(
-'Choose a specific command',('Unslected', 'Write a rap', 'Write a poem','Write an article', 'Generate ideas', 'Continue writing','Translate to English','Translate to Spanish','Translate to French', 'Translate to German','Translate to Japanese','Translate to Italian','Translate to Hindi'))
+'Choose a specific command',('Unslected', 'Create an image', 'Write a rap', 'Write a poem','Write an article', 'Generate ideas', 'Continue writing','Translate to English','Translate to Spanish','Translate to French', 'Translate to German','Translate to Japanese','Translate to Italian','Translate to Hindi'))
 
 question = st.text_input("Enter your prompt below:", fill)
 
 
 if question:
     #language translations
+    if option == 'Create an image':
+        response = openai.Image.create(
+        prompt=question,
+        n=1,
+        size="1024x1024"
+)
+    answer = response['data'][0]['url']
+)
+
     if option == 'Translate to Spanish':
         question = ('Translate to Spanish: ' + question)
         tokenmax = 50
