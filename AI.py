@@ -43,29 +43,54 @@ actionresponses = ["In terms of what I can do, I can tell jokes, help write a pa
 openai.api_key = st.secrets["APIKEY"]
 exitlist = ['bye', 'goodbye','see you','adios', 'cya', 'gtg', ]
 fill=''
-
+tokenmax=120
 option = st.selectbox(
-'Choose a specific command',('Write an article', 'Generate an idea', 'Continue writing','Translate to English','Translate to Spanish','Translate to French', 'Translate to German','Translate to Japanese','Translate to Italian','Translate to Hindi'))
+'Choose a specific command',('Unslected', 'Write a rap', 'Write a poem','Write an article', 'Generate ideas', 'Continue writing','Translate to English','Translate to Spanish','Translate to French', 'Translate to German','Translate to Japanese','Translate to Italian','Translate to Hindi'))
 
 question = st.text_input("Enter your prompt below:", fill)
 
 
 if question:
-    
+    #language translations
     if option == 'Translate to Spanish':
         question = ('Translate to Spanish: ' + question)
+        
     elif option == 'Translate to English':
         question = ('Translate to English: ' + question)
+        
     elif option == 'Translate to French':
         question = ('Translate to French: ' + question)
+        
     elif option == 'Translate to German':
         question = ('Translate to German: ' + question)
+        
     elif option == 'Translate to Japanese':
         question = ('Translate to Japanese: ' + question)
+        
     elif option == 'Translate to Italian':
         question = ('Translate to Italian: ' + question)
+        
     elif option == 'Translate to Hindi':
         question = ('Translate to Hindi: ' + question)
+        
+    #other commands
+    elif option == 'Write an article':
+        question = ('Write an article about: ' + question)
+        tokenmax = 200
+        
+    elif option == 'Generate an idea':
+        question = ('Ideas for ' + question)
+        
+    elif option == 'Continue writing':
+        question = ('Continue writing ' + question)
+        
+    elif option == 'Write a rap':
+        question = ('Make a rap about ' + question)
+        
+    elif option == 'Write a poem':
+        question = ('Make a poem about ' + question)
+    
+    
     
     index = random.randint(0,7)
     n = st.write(notif[index])
@@ -79,7 +104,7 @@ if question:
         
 
     else:
-        response = openai.Completion.create(model="text-davinci-003", prompt=question, temperature=0.3, max_tokens=120, top_p=1.0)
+        response = openai.Completion.create(model="text-davinci-003", prompt=question, temperature=0.3, max_tokens=tokenmax, top_p=1.0)
         answer = (response.choices[0].text).strip()
 
 
