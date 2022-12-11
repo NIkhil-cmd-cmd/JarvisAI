@@ -49,7 +49,7 @@ option = st.selectbox(
 
 question = st.text_input("Enter your prompt below:", fill)
 if option == 'Translate to Spanish':
-    question = ('Translate to Spanish: " + question)
+    question = ('Translate to Spanish: ' + question)
 
 if question:
     
