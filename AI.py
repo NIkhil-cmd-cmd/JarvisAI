@@ -45,7 +45,7 @@ exitlist = ['bye', 'goodbye','see you','adios', 'cya', 'gtg', ]
 fill=''
 
 option = st.selectbox(
-'Choose a specific command',('Translate to Spanish', 'Write an article', 'Generate an idea', 'Continue writing'))
+'Choose a specific command',('Write an article', 'Generate an idea', 'Continue writing','Translate to English','Translate to Spanish','Translate to French', 'Translate to German','Translate to Japanese','Translate to Italian','Translate to Hindi'))
 
 question = st.text_input("Enter your prompt below:", fill)
 
@@ -53,7 +53,7 @@ question = st.text_input("Enter your prompt below:", fill)
 if question:
     
     if option == 'Translate to Spanish':
-    question = ('Translate to Spanish: ' + question)
+        question = ('Translate to Spanish: ' + question)
     
     index = random.randint(0,7)
     n = st.write(notif[index])
