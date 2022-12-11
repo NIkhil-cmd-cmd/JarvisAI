@@ -17,7 +17,7 @@ opacity: 0.9;
 [data-testid="stMarkdownContainer"]{
 font-family: "Playfair Display"
 }
-</style>
+</style>a
 """
 
 
@@ -30,7 +30,7 @@ with st.container():
 
 
 # Load your API key from an environment variable or secret management service
-openai.api_key = "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"
+openai.api_key = APIKEY
 exitlist = ['bye', 'goodbye','see you','adios', 'cya', 'gtg', ]
 fill=''
 
