@@ -17,7 +17,7 @@ opacity: 0.9;
 [data-testid="stMarkdownContainer"]{
 font-family: "Playfair Display"
 }
-</style>a
+</style>
 """
 
 
@@ -27,7 +27,7 @@ with st.container():
     st.header("Welcome to a new world of creativity. :wave:")
     st.subheader("Meet Jarvis. An intelligent assistant using OpenAI.")
     st.write("You can ask Jarvis to answer questions, create a paragraph, finish a sentence, help come up with ideas, and a lot more!")
-
+nameresponses = ["My name is Jarvis, an intelligent and creative virtual assistant."]
 
 # Load your API key from an environment variable or secret management service
 openai.api_key = st.secrets["APIKEY"]
@@ -42,15 +42,16 @@ if question:
     index = random.randint(0,7)
     n = st.write(notif[index])
     
-    if "your name" in question:
+    if ("your name" in question) or ("ur name" in question):
         st.write("My name is Jarvis")
-        
-    response = openai.Completion.create(model="text-davinci-003", prompt=question, temperature=0.3, max_tokens=120, top_p=1.0)
-    answer = (response.choices[0].text).strip()
+
+    else:
+        response = openai.Completion.create(model="text-davinci-003", prompt=question, temperature=0.3, max_tokens=120, top_p=1.0)
+        answer = (response.choices[0].text).strip()
 
 
-    with st.container():
-        st.write(answer)
+        with st.container():
+            st.write(answer)
         
         
 st.caption("Copyright Nikhil Krishnaswamy 2022")
