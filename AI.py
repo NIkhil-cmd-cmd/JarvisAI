@@ -17,7 +17,7 @@ opacity: 0.9;
 [data-testid="stMarkdownContainer"]{
 font-family: "Playfair Display"
 }
-</style>a
+</style>
 """
 
 
