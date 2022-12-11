@@ -34,7 +34,7 @@ nameresponses = ["My name is Jarvis, an intelligent and creative virtual assista
                  "Hey, my name is Jarvis, how may I be of assistance?",
                  "My name is Jarvis, created to help those regain their creative edge, learn more, or just looking to have some fun."]
 actionresponses = ["In terms of what I can do, I can tell jokes, help write a paragraph, or even help you make a decision.", 
-                   "I can help you do your research, finish your sentences, or explore a topic",
+                   "I can help you do your research, finish your sentences, or explore a topic.",
                   "Similar to Google, I can answer your questions but can also give you ideas for names or brands.",
                   "I can do many things, I am a virtual assistant.",
                   "I am here to help you, tell me- what can I do?",
