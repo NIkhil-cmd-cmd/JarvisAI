@@ -58,7 +58,10 @@ if question:
         n=1,
         size="1024x1024"
 )
-    answer = response['data'][0]['url']
+        answer = response['data'][0]['url']
+        
+        with st.container():
+            st.write(answer)
 
 
     if option == 'Translate to Spanish':
