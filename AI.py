@@ -11,7 +11,7 @@ page_bg_img = """
 <style>
 [data-testid="stAppViewContainer"] {
 background-image: url("https://images.unsplash.com/photo-1525548002014-e18135d814d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80");
-opacity: 0.9;
+opacity: 1;
 
 }
 [data-testid="stMarkdownContainer"]{
