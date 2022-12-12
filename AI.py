@@ -106,21 +106,20 @@ if question:
     index = random.randint(0,7)
     n = st.write(notif[index])
     
-    if ("your name" not in question) or ("ur name" not in question) or ("you do" not in question) or ("u do" not in question):
-        
+            
+    if ("you do" in question) or ("u do" in question):
+        time.sleep(0.5)
+        st.write(actionresponses[(random.randint(0,5))])
+
+    if ("your name" in question) or ("ur name" in question):
+        time.sleep(0.5)
+        st.write(nameresponses[(random.randint(0,5))])
+    else:
         response = openai.Completion.create(model="text-davinci-003", prompt=question, temperature=0.3, max_tokens=tokenmax, top_p=1.0)
         answer = (response.choices[0].text).strip()
         
         with st.container():
             st.write(answer)
-            
-    elif ("you do" in question) or ("u do" in question):
-        time.sleep(0.5)
-        st.write(actionresponses[(random.randint(0,5))])
-
-    elif ("your name" in question) or ("ur name" in question):
-        time.sleep(0.5)
-        st.write(nameresponses[(random.randint(0,5))])
 
 
     
