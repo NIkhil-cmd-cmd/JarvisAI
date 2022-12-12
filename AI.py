@@ -111,18 +111,19 @@ if question:
         response = openai.Completion.create(model="text-davinci-003", prompt=question, temperature=0.3, max_tokens=tokenmax, top_p=1.0)
         answer = (response.choices[0].text).strip()
         
-        
+        with st.container():
+            st.write(answer)
+            
     elif ("you do" in question) or ("u do" in question):
         time.sleep(0.5)
-        answer = (actionresponses[(random.randint(0,5))])
+        st.write(actionresponses[(random.randint(0,5))])
 
     elif ("your name" in question) or ("ur name" in question):
         time.sleep(0.5)
-        answer = (nameresponses[(random.randint(0,5))])
+        st.write(nameresponses[(random.randint(0,5))])
 
 
-    with st.container():
-        st.write(answer)
+    
 
         
 st.caption("Copyright Nikhil Krishnaswamy 2022")
