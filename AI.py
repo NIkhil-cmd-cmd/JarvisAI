@@ -110,7 +110,11 @@ if question:
     if ("you do" in question) or ("u do" in question):
         time.sleep(0.5)
         st.write(actionresponses[(random.randint(0,5))])
-
+    
+    if ("Nikhil" in question) or ("nikhil" in question):
+        time.sleep(0.5)
+        st.write('Sorry I am not allowed to talk about my creator Nikhil :)')
+        
     if ("your name" in question) or ("ur name" in question):
         time.sleep(0.5)
         st.write(nameresponses[(random.randint(0,5))])
