@@ -3,9 +3,9 @@ import os
 import openai
 import random
 import time
-import hydralit_components as hc
 
-st.set_page_config(page_title="Jarvis AI", page_icon=":👋:")
+#configuration
+st.set_page_config(page_title="Jarvis AI", page_icon=":tada:")
 
 #adding background image for website
 page_bg_img = """
@@ -21,8 +21,8 @@ font-family: "Playfair Display"
 </style>
 """
 
-
 st.markdown(page_bg_img,unsafe_allow_html=True)
+
 notif = ["Hang tight...", "Initializing...", "Almost there...", "Hang on...", "Loading...", "Give me a minute...", "Finding an answer...", "Thinking...."]
 with st.container():
     st.header("Welcome to a new world of creativity. :wave:")
@@ -42,8 +42,6 @@ actionresponses = ["In terms of what I can do, I can tell jokes, help write a pa
                   "I can answer your strongest curiosities."]
 
 openai.api_key = st.secrets["APIKEY"]
-exitlist = ['bye', 'goodbye','see you','adios', 'cya', 'gtg', ]
-fill=''
 tokenmax=130
 option = st.selectbox(
 'Choose a specific command',('Unslected', 'Write a poem','Write an article', 'Generate ideas', 'Continue writing','Translate to English','Translate to Spanish','Translate to French', 'Translate to German','Translate to Japanese','Translate to Italian','Translate to Hindi'))
@@ -88,8 +86,9 @@ if question:
     elif option == 'Write a poem':
         question = ('Make a poem about ' + question)
         
-    with hc.HyLoader('Now doing loading',hc.Loaders.pulse_bars,):
-        time.sleep(loader_delay)
+    #let the user know it is loading    
+    index = random.randint(0,7)
+    st.write(notif[index])
             
     if ("you do" in question) or ("u do" in question):
         time.sleep(0.5)
