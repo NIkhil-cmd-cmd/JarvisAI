@@ -45,7 +45,7 @@ exitlist = ['bye', 'goodbye','see you','adios', 'cya', 'gtg', ]
 fill=''
 tokenmax=130
 option = st.selectbox(
-'Choose a specific command',('Unslected', 'Create an image', 'Write a rap', 'Write a poem','Write an article', 'Generate ideas', 'Continue writing','Translate to English','Translate to Spanish','Translate to French', 'Translate to German','Translate to Japanese','Translate to Italian','Translate to Hindi'))
+'Choose a specific command',('Unslected', 'Write a poem','Write an article', 'Generate ideas', 'Continue writing','Translate to English','Translate to Spanish','Translate to French', 'Translate to German','Translate to Japanese','Translate to Italian','Translate to Hindi'))
 
 question = st.text_input("Enter your prompt below:", fill)
 
