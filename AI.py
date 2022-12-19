@@ -45,9 +45,9 @@ openai.api_key = st.secrets["APIKEY"]
 tokenmax=130
 option = st.selectbox(
 'Choose a specific command',('Unslected', 'Write a poem','Write an article', 'Generate ideas', 'Continue writing','Translate to English','Translate to Spanish','Translate to French', 'Translate to German','Translate to Japanese','Translate to Italian','Translate to Hindi'))
-
-question = st.text_input("Enter your prompt below:", fill)
 fill = ''
+question = st.text_input("Enter your prompt below:", fill)
+
 
 if question:
     #language translations
