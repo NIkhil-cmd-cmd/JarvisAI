@@ -55,7 +55,6 @@ if question:
     if option == 'Translate to Spanish':
         question = ('Translate to Spanish: ' + question)
         tokenmax = 50
-        fill = 'translate testing '
     elif option == 'Translate to English':
         question = ('Translate to English: ' + question)
         tokenmax = 50
