@@ -3,6 +3,7 @@ import os
 import openai
 import random
 import time
+import hydralit_components as hc
 
 st.set_page_config(page_title="Jarvis AI", page_icon=":👋:")
 
@@ -86,12 +87,9 @@ if question:
         
     elif option == 'Write a poem':
         question = ('Make a poem about ' + question)
-    
-    
-    
-    index = random.randint(0,7)
-    n = st.write(notif[index])
-    
+        
+    with hc.HyLoader('Now doing loading',hc.Loaders.pulse_bars,):
+        time.sleep(loader_delay)
             
     if ("you do" in question) or ("u do" in question):
         time.sleep(0.5)
