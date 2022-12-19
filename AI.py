@@ -47,7 +47,7 @@ option = st.selectbox(
 'Choose a specific command',('Unslected', 'Write a poem','Write an article', 'Generate ideas', 'Continue writing','Translate to English','Translate to Spanish','Translate to French', 'Translate to German','Translate to Japanese','Translate to Italian','Translate to Hindi'))
 
 question = st.text_input("Enter your prompt below:", fill)
-
+fill = ''
 
 if question:
     #language translations
@@ -55,6 +55,7 @@ if question:
     if option == 'Translate to Spanish':
         question = ('Translate to Spanish: ' + question)
         tokenmax = 50
+        fill = 'translate testing '
     elif option == 'Translate to English':
         question = ('Translate to English: ' + question)
         tokenmax = 50
