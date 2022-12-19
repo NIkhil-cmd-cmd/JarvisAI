@@ -48,7 +48,13 @@ option = st.selectbox(
 fill = ''
 question = st.text_input("Enter your prompt below:", fill)
 
-
+def main(question):
+    response = openai.Completion.create(model="text-davinci-003", prompt=question, temperature=0.3, max_tokens=tokenmax, top_p=1.0)
+    answer = (response.choices[0].text).strip()
+        
+    with st.container():
+        st.write(answer)
+        
 if question:
     #language translations
 
@@ -98,11 +104,7 @@ if question:
         time.sleep(0.5)
         st.write(nameresponses[(random.randint(0,5))])
     else:
-        response = openai.Completion.create(model="text-davinci-003", prompt=question, temperature=0.3, max_tokens=tokenmax, top_p=1.0)
-        answer = (response.choices[0].text).strip()
-        
-        with st.container():
-            st.write(answer)
+        main(question)
 
 st.caption("Copyright Nikhil Krishnaswamy 2022")
 
