@@ -4,9 +4,9 @@ import openai
 import random
 import time
 
-st.set_page_config(page_title="Jarvis AI", page_icon=":tada:")
-#st.set_option("font-family","Playfair Display")
+st.set_page_config(page_title="Jarvis AI", page_icon=":👋:")
 
+#adding background image for website
 page_bg_img = """
 <style>
 [data-testid="stAppViewContainer"] {
@@ -52,17 +52,6 @@ question = st.text_input("Enter your prompt below:", fill)
 
 if question:
     #language translations
-    if option == 'Create an image':
-        response = openai.Image.create(
-        prompt=question,
-        n=1,
-        size="1024x1024"
-)
-        answer = response['data'][0]['url']
-        
-        with st.container():
-            st.image(answer)
-
 
     if option == 'Translate to Spanish':
         question = ('Translate to Spanish: ' + question)
@@ -95,9 +84,6 @@ if question:
     elif option == 'Continue writing':
         question = ('Continue writing ' + question)
         
-    elif option == 'Write a rap':
-        question = ('Make a rap about ' + question)
-        
     elif option == 'Write a poem':
         question = ('Make a poem about ' + question)
     
@@ -110,10 +96,6 @@ if question:
     if ("you do" in question) or ("u do" in question):
         time.sleep(0.5)
         st.write(actionresponses[(random.randint(0,5))])
-    
-    if ("Nikhil" in question) or ("nikhil" in question):
-        time.sleep(0.5)
-        st.write('Sorry I am not allowed to talk about my creator Nikhil :)')
         
     if ("your name" in question) or ("ur name" in question):
         time.sleep(0.5)
@@ -125,10 +107,6 @@ if question:
         with st.container():
             st.write(answer)
 
-
-    
-
-        
 st.caption("Copyright Nikhil Krishnaswamy 2022")
 
 
