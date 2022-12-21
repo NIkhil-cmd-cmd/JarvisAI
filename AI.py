@@ -1,10 +1,12 @@
-import streamlit as st
+##imports
+import streamlit as st 
+#streamlit is the module I used to take my existing code and make it into a website
 import os
-import openai
-import random
-import time
+import openai #main module which actually answers the query and sends the result back
+import random #for random num/index generator
+import time #for adding delays
 
-#configuration
+##configuration
 st.set_page_config(page_title="Jarvis AI", page_icon=":tada:")
 
 #adding background image for website
@@ -13,14 +15,9 @@ page_bg_img = """
 [data-testid="stAppViewContainer"] {
 background-image: url("https://images.unsplash.com/photo-1525548002014-e18135d814d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80");
 opacity: 1;
-
-}
-[data-testid="stMarkdownContainer"]{
-font-family: "Playfair Display"
 }
 </style>
 """
-
 st.markdown(page_bg_img,unsafe_allow_html=True)
 
 notif = ["Hang tight...", "Initializing...", "Almost there...", "Hang on...", "Loading...", "Give me a minute...", "Finding an answer...", "Thinking...."]
@@ -29,7 +26,7 @@ with st.container():
     st.subheader("Meet Jarvis. An intelligent assistant using OpenAI.")
     st.write("You can ask Jarvis to answer questions, write a paragraph, translate between languages, help come up with ideas, and a lot more!")
 nameresponses = ["My name is Jarvis, an intelligent and creative virtual assistant.", 
-                 "I am Jarvis, a virtual assistant created by my master Nikhil.", 
+                 "I am Jarvis, a virtual assistant created by my master", 
                  "My name is Jarvis, inspired by Tony Stark's virtual assistant, I can help you in countless ways.", 
                  "Hi I'm Jarvis, how can I help?", 
                  "Hey, my name is Jarvis, how may I be of assistance?",
@@ -40,7 +37,7 @@ actionresponses = ["In terms of what I can do, I can tell jokes, help write a pa
                   "I can do many things, I am a virtual assistant.",
                   "I am here to help you, tell me- what can I do?",
                   "I can answer your strongest curiosities."]
-
+#connecting API to openai davinci engine (hidden for security reasons)
 openai.api_key = st.secrets["APIKEY"]
 tokenmax=130
 option = st.selectbox(
@@ -48,16 +45,18 @@ option = st.selectbox(
 fill = ''
 question = st.text_input("Enter your prompt below:", fill)
 
+#this function takes the query and send it to openai to get a response
 def main(question):
-    response = openai.Completion.create(model="text-davinci-003", prompt=question, temperature=0.3, max_tokens=tokenmax, top_p=1.0)
-    answer = (response.choices[0].text).strip()
-        
-    with st.container():
-        st.write(answer)
-        
+    #sending to OPENAI to find an answer
+	response = openai.Completion.create(model="text-davinci-003", prompt=question, temperature=0.3, max_tokens=tokenmax, top_p=1.0)
+		#indexing the result from Open AI
+	answer = (response.choices[0].text).strip()
+        #printing answer 
+	with st.container():
+		st.write(answer)
+#if there is something in the input box, it will send it to openai by running main()
 if question:
-    #language translations
-
+    #adding language translation request to query
     if option == 'Translate to Spanish':
         question = ('Translate to Spanish: ' + question)
         tokenmax = 50
@@ -67,35 +66,22 @@ if question:
     elif option == 'Translate to French':
         question = ('Translate to French: ' + question)
         tokenmax = 50
-    elif option == 'Translate to German':
-        question = ('Translate to German: ' + question)
-        tokenmax = 50
-    elif option == 'Translate to Japanese':
-        question = ('Translate to Japanese: ' + question)
-        tokenmax = 50
-    elif option == 'Translate to Italian':
-        question = ('Translate to Italian: ' + question)
-        tokenmax = 50
     elif option == 'Translate to Hindi':
         question = ('Translate to Hindi: ' + question)
         tokenmax = 50
     #other commands
     elif option == 'Write an article':
         question = ('Write an article about: ' + question)
-        
     elif option == 'Generate an idea':
         question = ('Ideas for ' + question)
-        
     elif option == 'Continue writing':
         question = ('Continue writing ' + question)
-        
     elif option == 'Write a poem':
-        question = ('Make a poem about ' + question)
-        
+        question = ('Make a poem about ' + question) 
     #let the user know it is loading    
     index = random.randint(0,7)
     st.write(notif[index])
-            
+    # hard coding a few responses to make it more personalized
     if ("you do" in question) or ("u do" in question):
         time.sleep(0.5)
         st.write(actionresponses[(random.randint(0,5))])
@@ -104,8 +90,5 @@ if question:
         time.sleep(0.5)
         st.write(nameresponses[(random.randint(0,5))])
     else:
-        main(question)
-
-st.caption("Copyright Nikhil Krishnaswamy 2022")
-
-
+      main(question) # this calls the main() function defined above
+      
