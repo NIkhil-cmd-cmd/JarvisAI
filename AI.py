@@ -90,5 +90,5 @@ if question:
         time.sleep(0.5)
         st.write(nameresponses[(random.randint(0,5))])
     else:
-      st.write("go away vishresh") # this calls the main() function defined above
+      main(question) # this calls the main() function defined above
       
